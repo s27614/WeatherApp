@@ -1,0 +1,24 @@
+
+
+data =
+    {
+        'city': 'New York',
+        'temperature': 25.6,
+        'weather_desc': 'Sunny',
+        'feels_like': 27.8,
+        'icon_code': '01d',
+        'local_time': '2024-06-22 12:00:00',
+        'utc_time': '2024-06-22 09:00:00'
+    }
+
+data=
+    {
+        'city': 'London',
+        'temperature': 21.2,
+        'weather_desc': 'Cloudy',
+        'feels_like': 20.5,
+        'icon_code': '02d',
+        'local_time': '2024-06-22 16:00:00',
+        'utc_time': '2024-06-22 15:00:00'
+    }
+

@@ -1,0 +1,51 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+
+    padding: 2rem;
+    background-image: url('/static/download.jpg?v=1');
+    background-position: center;
+    background-size:cover;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2rem;
+    font-size: 2rem;
+    font-family: 'Comic Sans MS', cursive;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+input, button {
+    font-size: 1.5rem;
+    padding: 1rem;
+    border-radius: 10px;
+    margin-top: 1rem;
+    color: black !important;
+    text-decoration: none;
+    font-family: 'Comic Sans MS', cursive;
+    font-weight: bold;
+
+}
+
+.weather-info {
+    font-size: 1.5rem;
+    margin-top: 1rem;
+    text-align: center;
+    font-family: 'Comic Sans MS', cursive;
+    font-weight: bold;
+    color: black !important;
+
+
+}
+
+

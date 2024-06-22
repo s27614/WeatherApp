@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ title }} Weather</title>
+    <link href="{{ url_for('static', filename='styles/style.css') }}" rel="stylesheet" />
+
+</head>
+
+<body>
+    <h1>{{ title }} Weather</h1>
+
+    <form action="/weather">
+        <input type="text" name="city" id="city" placeholder="Enter a City" />
+        <button type="get weather">Get Weather</button>
+    </form>
+
+    <div class="weather-info">
+        <p>{{ status }} and {{ temp }}</p>
+        <p>Feels like {{ feels_like }}</p>
+        <img id="weatherIcon" src="{{ weather_icon_url }}" alt="Weather Icon">
+        <p id="local-time">Local Time: {{ local_time }}</p>
+        <p id="utc-time">UTC Time: {{ utc_time }}</p>
+    </div>
+
+
+
+    <script>
+        function fetchWeather(city) {
+            fetch(`/weather?city=${city}`)
+                .then(response => response.json())
+                .then(data => {
+                    document.getElementById('weatherStatus').textContent = `${data.status} and ${data.temp}`;
+                    document.getElementById('feelsLike').textContent = `Feels like ${data.feels_like}`;
+                    document.getElementById('localTime').textContent = `Local Time: ${data.local_time}`;
+                    document.getElementById('utcTime').textContent = `UTC Time: ${data.utc_time}`;
+                    document.getElementById('weatherIcon').src = data.weather_icon_url;
+                })
+                .catch(error => {
+                    console.error('Error fetching weather:', error);
+                });
+        }
+
+        document.getElementById('weatherForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+            const city = document.getElementById('city').value.trim();
+            if (city) {
+                fetchWeather(city);
+            }
+        });
+
+
+
+        // Initial weather fetch on page load (optional)
+        window.onload = function() {
+            fetchWeather('Warsaw');
+            setInterval(fetchWeather, 6000);
+        };
+
+
+
+
+
+    </script>
+
+
+
+
+</body>
+
+</html>
